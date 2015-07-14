@@ -1,12 +1,12 @@
 package body Dictionary is
 
-   --  The bottom 5 bits of the length header byte are used to store the length,
-   --  yielding a maximum length of 31.
+   --  The bottom 5 bits of the length header byte are used to store
+   --  the length, yielding a maximum length of 31.
    Max_Name_Length : constant Natural := 31;
 
    procedure Push (Name : in     String) is
-      Prev : access DEntry;
-      Node : access DEntry;
+      Prev : DEntry_Ptr;
+      Node : DEntry_Ptr;
    begin
       if Common.Name_Size (Name) <= Max_Name_Length then
          Node        := new DEntry;
@@ -15,6 +15,8 @@ package body Dictionary is
 
          if Latest /= null then
             Prev := Latest;
+         else
+            Prev := null;
          end if;
 
          Node.Link_Pointer := Prev;
