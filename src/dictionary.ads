@@ -24,4 +24,9 @@ package Dictionary is
                      Word  :    out DEntry_Ptr;
                      Found :    out Boolean);
 
+   procedure Execute (Word : in     DEntry_Ptr;
+                      Env  : in out Common.Env)
+      with
+         Pre => Word /= null and Word.Definition /= null;
+
 end Dictionary;

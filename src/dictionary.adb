@@ -44,4 +44,10 @@ package body Dictionary is
       end loop;
    end Lookup;
 
+   procedure Execute (Word : in     DEntry_Ptr;
+                      Env  : in out Common.Env) is
+   begin
+      Word.all.Definition (Env);
+   end Execute;
+
 end Dictionary;
