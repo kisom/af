@@ -6,4 +6,19 @@ project Default is
 
    for Main use ("forth");
 
+   package Compiler is
+      for Default_Switches ("Ada") use (
+                                        "-gnaty",
+                                        "-Wall",
+                                        "-gnatwj",
+                                        "-gnatVa",
+                                        "-gnatwa",
+                                        "-gnatwe"
+                                       );
+   end Compiler;
+
+   package Builder is
+      for Global_Configuration_Pragmas use "gnat.adc";
+   end Builder;
+
 end Default;

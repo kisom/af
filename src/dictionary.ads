@@ -8,6 +8,10 @@ package Dictionary is
          Link_Pointer : access DEntry;
          Length       : Common.Unsigned8;
          Name         : Unbounded_String;
+
+         --  The definition should be a pointer to a
+         --  a function that returns an error.
+         --  Definition   : access function return Common.Error;
    end record;
    type DEntry_Ptr is access DEntry;
 

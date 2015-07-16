@@ -1,4 +1,5 @@
 --  Common types and functions for the Forth.
+with Ada.Strings.Unbounded;   use Ada.Strings.Unbounded;
 
 package Common is
 
@@ -8,5 +9,11 @@ package Common is
    type Unsigned32 is mod 2 ** 32;
 
    function Name_Size (Name : in     String) return Natural;
+
+   type Error is
+      record
+         Occurred : Boolean;          --  Did an error occur?
+         Message  : Unbounded_String; --  What happened?
+      end record;
 
 end Common;
