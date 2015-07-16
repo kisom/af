@@ -17,8 +17,14 @@ package Stack is
    function New_Stack return Stack_Type;
 
    procedure Push (Stack : in out Stack_Type;
-                   Item  : in     Stack_Entry_Pointer);
+                   Item  : in     Stack_Entry_Pointer)
+      with
+         Pre  => Item /= null,
+         Post => Stack /= null;
    procedure Pop  (Stack : in out Stack_Type;
-                   Item  :    out Stack_Entry_Pointer);
+                   Item  :    out Stack_Entry_Pointer)
+      with
+         Pre  => Stack /= null,
+         Post => Item  /= null;
 
 end Stack;

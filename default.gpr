@@ -13,7 +13,8 @@ project Default is
                                         "-gnatwj",
                                         "-gnatVa",
                                         "-gnatwa",
-                                        "-gnatwe"
+                                        "-gnatwe",
+                                        "-gnat2012"
                                        );
    end Compiler;
 

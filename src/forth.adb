@@ -14,7 +14,8 @@ begin
    Num_Ptr.all         := 42;
    Item                := new Stack.Stack_Entry;
    Item.all.Entry_Type := Stack.Integer;
-   Item.all.Value      := IntPtrs.To_Address (Num_Ptr);
+   Item.all.Value      := IntPtrs.To_Address (IntPtrs.Object_Pointer
+       (Num_Ptr));
 
    Dictionary.Push ("+");
    Dictionary.Push ("-");

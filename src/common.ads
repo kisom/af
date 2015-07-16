@@ -1,6 +1,8 @@
 --  Common types and functions for the Forth.
 with Ada.Strings.Unbounded;   use Ada.Strings.Unbounded;
 
+with Stack;
+
 package Common is
 
    type Unsigned8  is mod 2 ** 8;
@@ -14,6 +16,11 @@ package Common is
       record
          Occurred : Boolean;          --  Did an error occur?
          Message  : Unbounded_String; --  What happened?
+      end record;
+
+   type Env is
+      record
+         Env_Stack : Stack.Stack_Type;
       end record;
 
 end Common;

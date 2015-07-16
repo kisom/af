@@ -26,7 +26,7 @@ package body Stack is
          raise Stack_Underflow;
       else
          Item          := Stack_Entry_Pointer (Stack);
-         Stack         := Stack.all.Next;
+         Stack         := Stack_Type (Stack.all.Next);
          Item.all.Next := null;
       end if;
    end Pop;

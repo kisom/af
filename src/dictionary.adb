@@ -19,9 +19,29 @@ package body Dictionary is
             Prev := null;
          end if;
 
-         Node.all.Link_Pointer := Prev;
-         Latest                := Node;
+         Node.all.Next := Prev;
+         Latest        := Node;
       end if;
    end Push;
+
+   procedure Lookup (Name  : in     Unbounded_String;
+                     Word  :    out DEntry_Ptr;
+                     Found :    out Boolean) is
+      Cursor : DEntry_Ptr := Latest;
+   begin
+      loop
+         exit when Cursor = null;
+         if Cursor.all.Name = Name then
+            --  Copy word without copying over link pointer.
+            Word                := new DEntry;
+            Word.all.Name       := Cursor.all.Name;
+            Word.all.Length     := Cursor.all.Length;
+            Word.all.Definition := Cursor.all.Definition;
+            Found               := True;
+         else
+            Cursor := DEntry_Ptr (Cursor.all.Next);
+         end if;
+      end loop;
+   end Lookup;
 
 end Dictionary;
