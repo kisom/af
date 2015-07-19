@@ -27,6 +27,6 @@ package Dictionary is
    procedure Execute (Word : in     DEntry_Ptr;
                       Env  : in out Common.Env)
       with
-         Pre => Word /= null and Word.Definition /= null;
+         Pre => Word /= null and then Word.Definition /= null;
 
 end Dictionary;

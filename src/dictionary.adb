@@ -47,7 +47,7 @@ package body Dictionary is
    procedure Execute (Word : in     DEntry_Ptr;
                       Env  : in out Common.Env) is
    begin
-      Word.all.Definition (Env);
+      Word.all.Definition.all (Env);
    end Execute;
 
 end Dictionary;

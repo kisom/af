@@ -23,4 +23,10 @@ package Common is
          Env_Stack : Stack.Stack_Type;
       end record;
 
+   procedure Push (Environment : in out Env;
+                   Item        : in     Stack.Stack_Entry_Pointer);
+
+   procedure Pop (Environment : in out Env;
+                   Item       :    out Stack.Stack_Entry_Pointer);
+
 end Common;

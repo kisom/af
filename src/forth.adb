@@ -2,11 +2,12 @@
 --  from jonesforth (http://git.annexia.org/?p=jonesforth.git;a=summary).
 
 with Text_IO, System, System.Address_To_Access_Conversions;
-with Dictionary, Stack;
+with Dictionary, Common, Stack;
 
 procedure Forth is
    package IntPtrs is new System.Address_To_Access_Conversions (Integer);
-   Main_Stack : Stack.Stack_Type := Stack.New_Stack;
+
+   Main_Env   : Common.Env;
    Item       : Stack.Stack_Entry_Pointer;
    Num_Ptr    : access Integer;
 begin
@@ -19,7 +20,7 @@ begin
 
    Dictionary.Push ("+");
    Dictionary.Push ("-");
-   Stack.Push (Main_Stack, Item);
+   Common.Push (Main_Env, Item);
 
    Text_IO.Put_Line ("OK");
 end Forth;
