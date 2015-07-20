@@ -2,6 +2,13 @@ with System;
 
 package Stack is
    type Stack_Value_Type is (Integer, UnsignedInteger, String, Word);
+
+   --  A stack entry should store the type of value being stored, a pointer
+   --  to the value being stored, and a pointer to the next value on the
+   --  stack. This approach is based on my understanding of how Ada works,
+   --  and is probably not the best approach. Callers that wish to use a
+   --  value on the stack will have to verify the type matches what they
+   --  expect to receive and signal an error if not.
    type Stack_Entry is
       record
          Entry_Type : Stack_Value_Type;

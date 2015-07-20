@@ -10,7 +10,10 @@ package Dictionary is
          Name       : Unbounded_String;
 
          --  The definition should be a pointer to a
-         --  a function that returns an error.
+         --  a function that returns an error. Instead of
+         --  machine code for the core functions, the dictionary
+         --  will have to be initialised with pre-defined
+         --  functions for the builtins.
          Definition : access function (Env : Common.Env)
                                        return Common.Error;
    end record;
