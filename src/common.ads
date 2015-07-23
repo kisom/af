@@ -12,10 +12,13 @@ package Common is
 
    function Name_Size (Name : in     String) return Natural;
 
-   type Error is
+   type Execution_Status is (Success, Error);
+
+   type Result is
       record
-         Occurred : Boolean;          --  Did an error occur?
-         Message  : Unbounded_String; --  What happened?
+         Status  : Execution_Status; --  Did an error occur?
+         Code    : Unsigned8;        --  Numeric condition identifier.
+         Message : Unbounded_String; --  What happened?
       end record;
 
    type Env is

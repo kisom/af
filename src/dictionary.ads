@@ -15,7 +15,7 @@ package Dictionary is
          --  will have to be initialised with pre-defined
          --  functions for the builtins.
          Definition : access function (Env : Common.Env)
-                                       return Common.Error;
+                                       return Common.Result;
    end record;
    type DEntry_Ptr is access all DEntry;
 

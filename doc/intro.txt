@@ -1,0 +1,7 @@
+AF: an Ada Forth
+
+This is an attempt at building a Forth in Ada.
+
+The dictionary is implemented as a linked-list, where each word has a
+function that takes an environment and returns an execution result.
+
